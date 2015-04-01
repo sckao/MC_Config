@@ -3,13 +3,13 @@ import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.PythiaUEZ2starSettings_cfi import *
 
 generator = cms.EDFilter("Pythia6GeneratorFilter",
-    pythiaHepMCVerbosity = cms.untracked.bool(False),
+    pythia6HepMCVerbosity = cms.untracked.bool(False),
     maxEventsToPrint = cms.untracked.int32(0),
-    pythiaPylistVerbosity = cms.untracked.int32(0),
+    pythia6PylistVerbosity = cms.untracked.int32(0),
     filterEfficiency = cms.untracked.double(1.0),
     comEnergy = cms.double(8000.0),
     PythiaParameters = cms.PSet(
-        pythiaUESettingsBlock,
+        pythia6UESettingsBlock,
         processParameters = cms.vstring(
             'MSEL=39                  ! All SUSY processes', 
             'IMSS(1) = 11             ! Spectrum from external SLHA file', 
@@ -19,18 +19,18 @@ generator = cms.EDFilter("Pythia6GeneratorFilter",
             'PARJ(71)=250.            ! for which ctau  250 mm', 
             'RMSS(21) = 0             ! The gravitino mass'),    
    
-        parameterSets = cms.vstring('pythiaUESettings', 
+        parameterSets = cms.vstring('pythia6UESettings', 
                                 'processParameters',
                                 'SLHAParameters'),
     
-        SLHAParameters = cms.vstring('SLHAFILE = Configuration/Generator/data/GMSB_Lambda140_CTau250_pythia.slha')
+        SLHAParameters = cms.vstring('SLHAFILE = Configuration/Generator/data/GMSB_Lambda140_CTau250_pythia6.slha')
 
         )
  )
 
 configurationMetadata = cms.untracked.PSet(
     version = cms.untracked.string('$Revision: 1.1 $'),
-    name = cms.untracked.string('$Source: /cvs/CMSSW/CMSSW/Configuration/GenProduction/python/GMSB_Lambda140_CTau250_8TeV_pythia_cff.py,v $'),
+    name = cms.untracked.string('$Source: /cvs/CMSSW/CMSSW/Configuration/GenProduction/python/GMSB_Lambda140_CTau250_8TeV_pythia6_cff.py,v $'),
     annotation = cms.untracked.string('GMSB Lambda=140TeV and ctau=250 at 8 TeV')
 )
 
